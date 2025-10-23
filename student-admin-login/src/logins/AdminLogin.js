@@ -3,15 +3,15 @@ import axios from 'axios';
 import './css/AdminLogin.css';
 
 function AdminLogin() {
-  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      const response = await axios.post('http://localhost:5000/api/login/admin', {
-        username,
+      const response = await axios.post('http://localhost:5000/api/admin/login', {
+        email,
         password
       });
 
@@ -23,7 +23,7 @@ function AdminLogin() {
       window.location.href = '/admin-dashboard';
     } catch (error) {
       console.error('Login Error:', error.response?.data || error.message);
-      alert('Login failed! Check username and password.');
+      alert('Login failed! Check email and password.');
     }
   };
 
@@ -33,10 +33,10 @@ function AdminLogin() {
       <form onSubmit={handleSubmit}>
         <div>
           <input 
-            type="text" 
-            placeholder="Username" 
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
+            type="email" 
+            placeholder="Email" 
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             required
           />
         </div>

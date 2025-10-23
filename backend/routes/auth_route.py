@@ -1,6 +1,7 @@
 from flask import Blueprint, request, jsonify
-from config import students_col, admins_col
+from .config import students_col, admins_col
 import bcrypt, jwt, os
+
 
 auth_bp = Blueprint('auth', __name__)
 

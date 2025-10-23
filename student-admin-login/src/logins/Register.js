@@ -6,22 +6,31 @@ function Register() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [role, setRole] = useState('student');
+  const [role, setRole] = useState('student'); // student or admin
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const formData = { name, email, password, role };
+    const formData = { name, email, password };
 
     try {
-      const response = await axios.post('http://localhost:5000/api/register', formData);
-      console.log('Registration Success:', response.data);
-      alert('Registration successful! Please login.');
+      // ✅ Use 'role' to determine endpoint
+      const endpoint =
+        role === "student"
+          ? "http://localhost:5000/api/student/register"
+          : "http://localhost:5000/api/admin/register";
+
+      const response = await axios.post(endpoint, formData);
+
+      console.log("Registration Success:", response.data);
+      alert("Registration successful! Please login.");
+
       // redirect to login page
-      window.location.href = '/';
+      window.location.href = "/";
+
     } catch (error) {
       console.error('Registration Error:', error.response?.data || error.message);
-      alert('Registration failed! Check console for details.');
+      alert(error.response?.data?.error || 'Registration failed! Check console for details.');
     }
   };
 

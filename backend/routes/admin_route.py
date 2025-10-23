@@ -1,23 +1,23 @@
 from flask import Blueprint, request, jsonify
-from config import db
+from .config import db
 
-student_bp = Blueprint("admin_bp", __name__)
-students = db["Admin"]
+admin_bp = Blueprint("admin_bp", __name__)
+admins = db["Admin"]
 
-@student_bp.route("/register", methods=["POST"])
-def register_student():
+@admin_bp.route("/register", methods=["POST"])
+def register_admin():
     data = request.get_json()
-    students.insert_one(data)
+    admins.insert_one(data)
     return jsonify({"message": "Admin registered successfully"})
 
-@student_bp.route("/login", methods=["POST"])
-def login_student():
+@admin_bp.route("/login", methods=["POST"])
+def login_admin():
     data = request.get_json()
     email = data.get("email")
     password = data.get("password")
 
-    user = students.find_one({"email": email, "password": password})
+    user = admins.find_one({"email": email, "password": password})
     if user:
         return jsonify({"message": "Login successful", "name": user["name"]})
     else:
-        return jsonify({"error": "Invalid credentials"}), 401
+        return jsonify({"error": user}), 401

@@ -1,8 +1,8 @@
 from flask import Blueprint, request, jsonify
-from config import db
+from .config import db
 
 student_bp = Blueprint("student_bp", __name__)
-students = db["students"]
+students = db["Student"]
 
 @student_bp.route("/register", methods=["POST"])
 def register_student():
