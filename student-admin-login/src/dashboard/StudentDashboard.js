@@ -3,15 +3,15 @@ import DashboardNavbar from './DashboardNavbar';
 import './css/Dashboard.css';
 
 function StudentDashboard() {
-  const links = [
-    { label: 'Upcoming Companies', path: '#' },
-    { label: 'Skill Gap', path: '#' },
-    { label: 'Resume Analyse', path: '#' },
-  ];
+  const handleLogout = () => {
+    localStorage.removeItem('studentToken');
+    localStorage.removeItem('adminToken');
+    window.location.href = '/';
+  };
 
   return (
     <div>
-      <DashboardNavbar links={links} />
+      <DashboardNavbar onLogout={handleLogout} />
       <div className="dashboard-container">
         <h2>Welcome, Student!</h2>
         <section>

@@ -1,38 +1,65 @@
-.container {
-  max-width: 400px;
-  margin: 50px auto;
-  background-color: white;
-  padding: 30px;
-  border-radius: 8px;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+/* Body background and font */
+body {
+  background-color: #f0f2f5;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+/* Centered card container */
+form {
+  background-color: #fff;
+  max-width: 400px;
+  margin: 80px auto;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+}
+
+/* Heading */
 h2 {
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
+  color: #333;
 }
 
-form input, form select {
+/* Input fields */
+input {
   width: 100%;
-  padding: 10px;
-  margin-top: 10px;
-  border-radius: 5px;
+  padding: 12px;
+  margin-top: 12px;
   border: 1px solid #ccc;
-  box-sizing: border-box;
+  border-radius: 8px;
+  font-size: 15px;
+  transition: border-color 0.3s;
 }
 
-form button {
+input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+/* Button */
+button {
   width: 100%;
-  padding: 10px;
+  padding: 12px;
   margin-top: 20px;
-  background-color: #007bff;
   border: none;
-  border-radius: 5px;
-  color: white;
+  border-radius: 8px;
+  background-color: #007bff;
+  color: #fff;
   font-weight: bold;
+  font-size: 16px;
   cursor: pointer;
+  transition: background-color 0.3s;
 }
 
-form button:hover {
+button:hover {
   background-color: #0056b3;
+}
+
+/* Small responsive adjustment */
+@media (max-width: 480px) {
+  form {
+    margin: 50px 20px;
+    padding: 25px;
+  }
 }

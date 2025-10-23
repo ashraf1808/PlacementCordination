@@ -3,15 +3,15 @@ import DashboardNavbar from './DashboardNavbar';
 import './css/Dashboard.css';
 
 function AdminDashboard() {
-  const links = [
-    { label: 'Applications Received', path: '#' },
-    { label: 'Manage Companies', path: '#' },
-    { label: 'Reports', path: '#' },
-  ];
+  const handleLogout = () => {
+    localStorage.removeItem('adminToken');
+    localStorage.removeItem('studentToken');
+    window.location.href = '/';
+  };
 
   return (
     <div>
-      <DashboardNavbar links={links} />
+      <DashboardNavbar onLogout={handleLogout} />
       <div className="dashboard-container">
         <h2>Welcome, Admin!</h2>
         <section>

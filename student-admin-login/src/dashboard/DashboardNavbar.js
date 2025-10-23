@@ -1,12 +1,11 @@
 import React from 'react';
 import './css/DashboardNavbar.css';
 
-function DashboardNavbar({ links }) {
+function DashboardNavbar({ onLogout }) {
   return (
     <nav className="dashboard-nav">
-      {links.map((link) => (
-        <a key={link.label} href={link.path}>{link.label}</a>
-      ))}
+      <div className="dashboard-title">Placement Coordination</div>
+      <button className="logout-button" onClick={onLogout}>Logout</button>
     </nav>
   );
 }
