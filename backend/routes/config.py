@@ -9,7 +9,7 @@ client = MongoClient(MONGO_URI)
 db = client['placementcord']
 
 # Collections
-students_col = db['students']
-admins_col = db['admins']
+students_col = db['Student']
+admins_col = db['Admin']
 jobs_col = db['jobs']
-applications_col = db['applications']
+#applications_col = db['applications']
