@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './StudentLogin.css';
+import './css/AdminLogin.css';
 function AdminLogin() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');

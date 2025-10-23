@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 //import './all.css';
+import './css/StudentLogin.css';
 function StudentLogin() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');

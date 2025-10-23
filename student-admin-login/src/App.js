@@ -5,6 +5,10 @@ import AdminLogin from './logins/AdminLogin.js';
 import Register from './logins/Register.js';
 import Navbar from './components/Navbar.js';
 
+import StudentDashboard from './dashboard/StudentDashboard';
+import AdminDashboard from './dashboard/AdminDashboard';
+
+
 function App() {
   return (
     <Router>
@@ -13,6 +17,8 @@ function App() {
         <Route path="/" element={<StudentLogin />} />
         <Route path="/admin" element={<AdminLogin />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/student-dashboard" element={<StudentDashboard />} />
+        <Route path="/admin-dashboard" element={<AdminDashboard />} />
       </Routes>
     </Router>
   );
