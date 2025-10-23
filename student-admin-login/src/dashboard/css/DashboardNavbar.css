@@ -1,19 +1,37 @@
 .dashboard-nav {
   background-color: #007bff;
-  padding: 15px 20px;
+  padding: 8px 16px; /* smaller navbar padding */
   display: flex;
-  gap: 20px;
-  justify-content: flex-start;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 8px;
+  margin: 20px auto;
+  max-width: 1000px;
 }
 
-.dashboard-nav a {
+.dashboard-title {
   color: white;
-  text-decoration: none;
   font-weight: bold;
-  transition: color 0.2s ease;
+  font-size: 16px; /* slightly smaller title */
 }
 
-.dashboard-nav a:hover {
-  color: #ffdd57;
-  text-decoration: underline;
+/* Extra small Logout button */
+.logout-button {
+  background-color: #ff4d4f;
+  color: white;
+  border: none;
+  padding: 2px 5px;   /* very small padding */
+  border-radius: 3px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 11px;    /* smaller font */
+  line-height: 1;
+  height: 27px;       /* smaller height */
+  min-width: 50px;    /* smaller width */
+  text-align: center;
+  transition: background-color 0.3s;
+}
+
+.logout-button:hover {
+  background-color: #d9363e;
 }

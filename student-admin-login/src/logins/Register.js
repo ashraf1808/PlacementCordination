@@ -1,14 +1,28 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import './css/Register.css';
+
 function Register() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [role, setRole] = useState('student');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    alert(`Registering ${role}\nName: ${name}\nEmail: ${email}`);
+
+    const formData = { name, email, password, role };
+
+    try {
+      const response = await axios.post('http://localhost:5000/api/register', formData);
+      console.log('Registration Success:', response.data);
+      alert('Registration successful! Please login.');
+      // redirect to login page
+      window.location.href = '/';
+    } catch (error) {
+      console.error('Registration Error:', error.response?.data || error.message);
+      alert('Registration failed! Check console for details.');
+    }
   };
 
   return (
